@@ -138,6 +138,91 @@
       </div>
     </section>
 
+        <!-- How It Works Section -->
+        <section class="how-it-works" id="how-it-works">
+        <div class="section-title">
+            <h2>How It Works</h2>
+            <p>Create your birthday celebration in just a few simple steps</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Sign Up</h3>
+                <p>Create an account and set your birthday date.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Customize</h3>
+                <p>Upload photos, choose your theme, and personalize your page.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Share</h3>
+                <p>Copy your unique link and share it with friends and family.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Celebrate</h3>
+                <p>Receive birthday wishes and enjoy your special day!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="example" id="example">
+        <div class="section-title">
+            <h2>See It In Action</h2>
+            <p>Preview what your birthday celebration page could look like</p>
+        </div>
+        <div class="example-preview">
+            <div class="example-card">
+                <div class="example-header">
+                    <h3>Happy Birthday Emma!</h3>
+                    <div class="example-countdown">
+                        <div class="countdown-item">
+                            <span>05</span>
+                            <p>Days</p>
+                        </div>
+                        <div class="countdown-item">
+                            <span>12</span>
+                            <p>Hours</p>
+                        </div>
+                        <div class="countdown-item">
+                            <span>34</span>
+                            <p>Minutes</p>
+                        </div>
+                        <div class="countdown-item">
+                            <span>22</span>
+                            <p>Seconds</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-body">
+                    <div class="example-carousel">
+                        <i class="fas fa-images fa-3x"></i>
+                    </div>
+                    <div class="wishes-form">
+                        <h4>Leave a Birthday Wish</h4>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" placeholder="Write your birthday wish here..."></textarea>
+                        </div>
+                        <button class="btn btn-primary">Send Wish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Ready to Make Birthday Memories?</h2>
+        <p>Sign up today and create your personalized birthday celebration page in minutes.</p>
+        <button class="btn" id="cta-signup-btn">Create Your Birthday Page</button>
+    </section>
+
     <footer class="footer">
       <div class="container">
         <p>Admin Portal - Esther's Birthday Celebration</p>
@@ -373,13 +458,18 @@ export default {
 
         .feature-icon {
             font-size: 2.5rem;
-            color: var(--primary-color);
+            color: #FF4D6D;
             margin-bottom: 1.5rem;
         }
 
         .feature-card h3 {
             margin-bottom: 1rem;
             color: var(--dark-color);
+        }
+
+        .feature-card p {
+          border: 1px solid red;
+          color: black
         }
 
 .subtitle {
@@ -426,13 +516,189 @@ export default {
 .feature-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #4a90e2;
+  color: #FF4D6D;
 }
 
-.feature-card p {
+.featurd p {
   opacity: 0.8;
   line-height: 1.6;
 }
+
+/* How It Works Section */
+.how-it-works {
+            padding: 5rem 5%;
+            background-color: #F5F5F5;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 25%;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #FF4D6D;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .step h3 {
+            margin-bottom: 1rem;
+            color: #1E1E24;
+        }
+
+        .step p {
+          color: black
+        }
+
+        /* Example Section */
+        .example {
+            padding: 5rem 5%;
+            background-color: white;
+            text-align: center;
+        }
+
+        .example-preview {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .example-card {
+            width: 80%;
+            max-width: 800px;
+            background-color: var(--light-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .example-header {
+            background:linear-gradient(to right, #FF4D6D, #7B2CBF);            ;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .example-header h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            min-width: 70px;
+        }
+
+        .countdown-item span {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .example-body {
+            padding: 2rem;
+        }
+
+        .example-carousel {
+            background-color: #1E1E24;
+            height: 200px;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .wishes-form {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-main);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+/* CTA Section */
+.cta {
+            padding: 5rem 5%;
+            background: linear-gradient(to right, #FF4D6D, #7B2CBF);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .btn {
+            background-color: white;
+            color: #FF4D6D;
+            font-size: 1.2rem;
+            padding: 0.75rem 2rem;
+        }
+
+        .cta .btn:hover {
+            background-color: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
 
 .footer {
   padding: 2rem;
