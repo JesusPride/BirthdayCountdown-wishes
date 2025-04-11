@@ -1,70 +1,234 @@
 <template>
   <div class="landing-page">
-    <nav class="navbar">
-      <div class="container">
-        <div class="logo">Esther's Birthday</div>
-        <button class="btn-primary" @click="goToBirthday">View Birthday Page</button>
-      </div>
+
+    <nav>
+        <div class="logo">Celebrate<span>.</span></div>
+        <div class="nav-links">
+          <router-link to="#features" class="me-3 lin">Features</router-link>
+            <router-link to="#how-it-works" class="me-3 lin">How It Works</router-link>
+            <router-link to="#example" class="lin">Example</router-link>
+        </div>
+        <div class="nav-buttons">
+          <button v-if="!isAuthenticated" class="btn-secondary" @click="showAuthModal = true">
+            Admin Login
+          </button>
+          <button v-if="isAuthenticated" class="btn-secondary" @click="logout">
+            Logout
+          </button>
+        </div>
     </nav>
 
+
     <section class="hero">
-      <div class="container">
-        <h1>Celebrate Esther's Special Day</h1>
-        <p class="subtitle">Join us in making this birthday unforgettable</p>
-        <button class="btn-primary" @click="goToBirthday">Send Your Wishes</button>
+        <div class="hero-content">
+            <h1>Make Every <span>Birthday</span> Special</h1>
+            <p>Create personalized birthday celebrations that friends and family can join from anywhere. Set up your birthday page, share your link, and collect heartfelt wishes from loved ones.</p>
+            <button class="btn btn-primary" id="hero-signup-btn">Get Started</button>
+        </div>
+        <div class="hero-image">
+            <img src="" alt="Birthday celebration preview">
+        </div>
+  
+        <div class="hero-buttons">
+          <button v-if="isAuthenticated" class="btn-primary" @click="goToDashboard">
+            View Dashboard
+          </button>
+        </div>
+    </section>
+
+    <!-- <section class="hero">
+      <div class="">
+        <div class="d-flex">
+            <div class="hero-content">
+              <h1>Make Every <span>Birthday</span> Special</h1>
+              <p>Create personalized birthday celebrations that friends and family can join from anywhere. Set up your birthday page, share your link, and collect heartfelt wishes from loved ones.</p>
+            </div>
+
+        <div class="hero-image">
+            <img src="" alt="Birthday celebration preview">
+        </div>
+
+        </div>
+
+        <div class="hero-buttons">
+          <button v-if="isAuthenticated" class="btn-primary" @click="goToDashboard">
+            View Dashboard
+          </button>
+        </div>
       </div>
+    </section> -->
+
+    <!-- Features Section -->
+    <section class="features1" id="features">
+        <div class="section-title">
+            <h2>Amazing Features</h2>
+            <p>Everything you need to create memorable birthday celebrations</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Countdown Timer</h3>
+                <p>Build excitement with a customizable countdown timer showing days, hours, minutes and seconds until the big day.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-images"></i>
+                </div>
+                <h3>Photo Carousel</h3>
+                <p>Upload your favorite photos to create a beautiful slideshow of memories for your birthday page.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3>Birthday Music</h3>
+                <p>Add a personal touch with birthday music that plays when visitors open your celebration page.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <h3>Birthday Wishes</h3>
+                <p>Friends can leave heartfelt birthday messages that you'll cherish forever.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <h3>Easy Sharing</h3>
+                <p>Generate a unique link to share with friends and family across social media and messaging apps.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3>Customizable Themes</h3>
+                <p>Choose from light or dark mode and personalize colors to match your style.</p>
+            </div>
+        </div>
     </section>
 
     <section class="features">
       <div class="container">
-        <h2>What's Special About This Day?</h2>
+        <h2>Admin Features</h2>
         <div class="feature-grid">
-          <div class="feature-card">
-            <div class="icon">🎉</div>
-            <h3>Countdown to Celebration</h3>
-            <p>Watch the countdown to Esther's special day and join the excitement!</p>
+          <div class="feature-card Admin">
+            <div class="icon">📝</div>
+            <h3>View Wishes</h3>
+            <p>Access and manage all birthday wishes sent to Esther.</p>
           </div>
-          <div class="feature-card">
-            <div class="icon">💌</div>
-            <h3>Send Your Wishes</h3>
-            <p>Share your heartfelt birthday messages and make this day even more special.</p>
+          <div class="feature-card Admin">
+            <div class="icon">📊</div>
+            <h3>Analytics</h3>
+            <p>View statistics and insights about the celebrations.</p>
           </div>
-          <div class="feature-card">
-            <div class="icon">📸</div>
-            <h3>Photo Gallery</h3>
-            <p>View and share beautiful moments from Esther's journey.</p>
+          <div class="feature-card Admin">
+            <div class="icon">⚙️</div>
+            <h3>Settings</h3>
+            <p>Manage celebration settings and preferences.</p>
           </div>
-          <div class="feature-card">
-            <div class="icon">🎵</div>
-            <h3>Birthday Music</h3>
-            <p>Enjoy a curated playlist of birthday songs and celebrations.</p>
+          <div class="feature-card Admin">
+            <div class="icon">🔒</div>
+            <h3>Security</h3>
+            <p>Secure access to all administrative features.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cta">
-      <div class="container">
-        <h2>Ready to Celebrate?</h2>
-        <p>Join us in making Esther's birthday a memorable one!</p>
-        <button class="btn-primary" @click="goToBirthday">Start Celebrating</button>
-      </div>
-    </section>
-
     <footer class="footer">
       <div class="container">
-        <p>Made with ❤️ for Esther's Birthday</p>
+        <p>Admin Portal - Esther's Birthday Celebration</p>
       </div>
     </footer>
+
+    <!-- Auth Modal -->
+    <div v-if="showAuthModal" class="modal-overlay" @click="showAuthModal = false">
+      <div class="modal-content" @click.stop>
+        <button class="close-btn" @click="showAuthModal = false">&times;</button>
+        <h3>Admin Login</h3>
+        <AuthForms 
+          @login="handleLogin"
+          @register="handleRegister"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import AuthForms from '../components/AuthForms.vue'
+import { api } from '../services/api'
+
 export default {
   name: 'LandingPage',
+  components: {
+    AuthForms
+  },
+  data() {
+    return {
+      showAuthModal: false,
+      isAuthenticated: false,
+      isLoading: false,
+      authError: null
+    }
+  },
   methods: {
-    goToBirthday() {
-      this.$router.push('/birthday');
+    goToDashboard() {
+      this.$router.push('/admin');
+    },
+    async handleLogin(credentials) {
+      this.isLoading = true;
+      this.authError = null;
+      try {
+        const response = await api.login(credentials);
+        localStorage.setItem('token', response.token);
+        this.isAuthenticated = true;
+        this.showAuthModal = false;
+        this.$router.push('/admin');
+      } catch (error) {
+        this.authError = error.message;
+        alert(this.authError);
+      } finally {
+        this.isLoading = false;
+      }
+    },
+    async handleRegister(userData) {
+      this.isLoading = true;
+      this.authError = null;
+      
+      try {
+        const response = await api.register(userData);
+        if (response.success) {
+          await this.handleLogin({
+            email: userData.email,
+            password: userData.password
+          });
+          alert('Registration successful!');
+        } else {
+          this.authError = response.message || 'Registration failed. Please try again.';
+          alert(this.authError);
+        }
+      } catch (error) {
+        console.error('Registration failed:', error);
+        this.authError = error.message || 'An error occurred during registration. Please try again.';
+        alert(this.authError);
+      } finally {
+        this.isLoading = false;
+      }
+    },
+    logout() {
+      this.isAuthenticated = false;
+      localStorage.removeItem('token');
+      alert('Logged out successfully!');
+    }
+  },
+  mounted() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.isAuthenticated = true;
     }
   }
 }
@@ -77,46 +241,146 @@ export default {
   color: white;
 }
 
-.navbar {
-  padding: 1rem 0;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-}
+/* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
 
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #FF4D6D;
+        }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #4a90e2;
-}
+        .logo span {
+            color: #7B2CBF;
+        }
 
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links lin {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FF4D6D;
+        }
+
+/* Hero Section */
 .hero {
-  padding: 8rem 2rem 4rem;
-  text-align: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-              url('/images/hero-bg.jpg') center/cover;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: #FFC6D3;
+            padding: 0 5%;
+            margin-top: 60px;
+        }
 
-.hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-}
+        .hero-content {
+            width: 50%;
+            padding-right: 2rem;
+        }
+
+        .hero-image {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--dark-color);
+        }
+
+        .hero-content h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+/* Features Section */
+.features1 {
+            padding: 5rem 5%;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            color: black;
+            font-weight: 900;
+            font-size: 2.5rem
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
 
 .subtitle {
   font-size: 1.5rem;
@@ -142,7 +406,7 @@ export default {
   margin: 0 auto;
 }
 
-.feature-card {
+.Admin {
   background: rgba(255, 255, 255, 0.1);
   padding: 2rem;
   border-radius: 12px;
@@ -170,25 +434,25 @@ export default {
   line-height: 1.6;
 }
 
-.cta {
-  padding: 4rem 2rem;
+.footer {
+  padding: 2rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.cta h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.cta p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
 }
 
 .btn-primary {
-  background: #4a90e2;
+  background: #ff3399;
   border: none;
   padding: 0.75rem 2rem;
   border-radius: 25px;
@@ -204,16 +468,81 @@ export default {
   transform: translateY(-2px);
 }
 
-.footer {
-  padding: 2rem;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.2);
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #ff3399;
+  color: #ff3399;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bolder;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+.btn-secondary:hover {
+  background: rgba(74, 144, 226, 0.1);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #ff6b6b;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
 }
 
 @media (max-width: 768px) {
